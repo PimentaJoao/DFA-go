@@ -10,17 +10,15 @@ func main() {
 
 	afd := AFD.New("./examples/example1.txt")
 
-	// states, success := AFD.Process(afd)
+	wordTest := AFD.Process(afd)
 
-	// fmt.Println("Estados percorridos: ", states)
-	// fmt.Println("Palavra foi aceita?: ", success)
-
-	for i := 0; i < len(afd.Estados); i++ {
-		for j := 0; j < len(afd.Estados); j++ {
-			bla := fmt.Sprint(afd.Transicoes[i][j])
-			fmt.Print(bla)
+	for _, test := range wordTest {
+		fmt.Print("Palavra: ", test.Word, "\n")
+		fmt.Println("Estados percorridos: ")
+		for _, w := range test.States {
+			fmt.Print(" -> ", w)
 		}
-		fmt.Println("\n-------------")
+		fmt.Print("\nPalavra foi aceita?: ", test.AcceptedStatus, "\n\n")
 	}
 
 }

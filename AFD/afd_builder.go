@@ -85,7 +85,7 @@ func buildAutomata(instructions []string) AFD {
 
 		// Para cada linha, registra as transições (uma para cada símbolo do alfabeto).
 		for j := 0; j < len(afd.Alfabeto); j++ {
-			stateIndex := findState(afd.Estados, transicao[j])
+			stateIndex := stateToIndex(afd.Estados, transicao[j])
 			afd.Transicoes[i][stateIndex] = append(afd.Transicoes[i][stateIndex], afd.Alfabeto[j])
 		}
 	}
@@ -102,8 +102,8 @@ func buildAutomata(instructions []string) AFD {
 	return afd
 }
 
-// findState encontra em qual índice se encontra o estado procurado.
-func findState(estados []string, estado string) int {
+// stateToIndex encontra em qual índice se encontra o estado procurado.
+func stateToIndex(estados []string, estado string) int {
 
 	for i, v := range estados {
 		if v == estado {
