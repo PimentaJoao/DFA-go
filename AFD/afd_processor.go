@@ -6,15 +6,15 @@ type TestHandler struct {
 	AcceptedStatus bool
 }
 
-// Process recebe uma palavra e um AFD, retornando um "array" de estados percorridos e
-// se a palavra foi aceita ou não.
+// Process recebe uma um AFD, retornando um "array" de estados percorridos e
+// se suas palavras foram aceita ou não.
 func Process(afd AFD) []TestHandler {
 	var tests []TestHandler
 
-	// Para cada palavra, encontra se ela foi aceita e por quais estados passou
+	// Para cada palavra, encontra se ela foi aceita e por quais estados passou.
 	for i := 0; i < afd.Testes.Amount; i++ {
 
-		// Inicializa "array" de estados
+		// Inicializa "array" de estados com o estado inicial.
 		var states []string = nil
 		states = append(states, afd.EstadoInicial)
 
@@ -43,10 +43,10 @@ func Process(afd AFD) []TestHandler {
 }
 
 func discoverNextState(afd AFD, currentState string, symbol string) string {
-	// Encontro o índice do estado onde a palavra está agora
+	// Encontra o índice do estado onde a palavra está agora
 	stateIndex := stateToIndex(afd.Estados, currentState)
 
-	// Dentro desse índice, procuro e retorno para qual estado o símbolo atual da
+	// Dentro desse índice, procura e retorna para qual estado o símbolo atual da
 	// palavra "aponta".
 	for i := 0; i < len(afd.Estados); i++ {
 		for _, s := range afd.Transicoes[stateIndex][i] {

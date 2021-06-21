@@ -1,13 +1,14 @@
-1 2 3 4 e
+0 1 2 3
 a b
-2 e
-e 3
-4 e
-4 4
-e e
-1
-4
+1 2
+2 3
+3 2
+3 3
+0
 3
-abaaa
-abbababa
-abaabaaba
+5
+bbbbbbbbbb
+aaaaaaaaaa
+aabbbbbbbba
+bbbbbbbba
+abaaabb

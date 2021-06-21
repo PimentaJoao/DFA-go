@@ -12,7 +12,7 @@ func main() {
 	// Lê o diretório "/exemples".
 	files, _ := ioutil.ReadDir("./examples")
 
-	// Para cada arquivo encontrado, cria seu AFD e analisa suas palavras testes.
+	// Para cada arquivo encontrado, cria seu AFD e analisa suas palavras teste.
 	for _, file := range files {
 		fmt.Print("\nARQUIVO: ", file.Name(), "\n\n\n")
 
